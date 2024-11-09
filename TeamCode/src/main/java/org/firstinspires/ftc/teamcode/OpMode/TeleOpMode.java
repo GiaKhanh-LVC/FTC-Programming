@@ -1,33 +1,28 @@
-package org.firstinspires.ftc.teamcode.TeleOp;
+package org.firstinspires.ftc.teamcode.OpMode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.Range;
-
+import org.firstinspires.ftc.teamcode.control.MotorControlModule;
 @TeleOp(name="Sample_TeleOp", group="TeleOp")
-public class Sample_TeleOp extends OpMode {
+public class TeleOpMode extends OpMode {
+    private MotorControlModule leftFront, rightFront, leftRear, rightRear;
 
-    private DcMotor leftFront, rightFront;
-    private DcMotor leftRear, rightRear;
     private double theta;
 
     @Override
     public void init() {
-        leftFront = hardwareMap.get(DcMotor.class, "leftFront");
-        rightFront = hardwareMap.get(DcMotor.class, "rightFront");
-        leftRear = hardwareMap.get(DcMotor.class, "leftRear");
-        rightRear = hardwareMap.get(DcMotor.class, "rightRear");
+        leftFront = new MotorControlModule();
+        rightFront= new MotorControlModule();
+        leftRear= new MotorControlModule();
+        rightRear = new MotorControlModule();
+        ///////////////////////
+        leftFront.LeftFront();
+        rightFront.RightFront();
+        leftRear.LeftRear();
+        rightRear.RightRear();
 
-        leftFront.setDirection(DcMotor.Direction.FORWARD);
-        rightFront.setDirection(DcMotor.Direction.REVERSE);
-        leftRear.setDirection(DcMotor.Direction.FORWARD);
-        rightRear.setDirection(DcMotor.Direction.REVERSE);
-
-        leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        leftRear.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        rightRear.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
     @Override
