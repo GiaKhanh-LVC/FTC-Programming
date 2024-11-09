@@ -2,26 +2,32 @@ package org.firstinspires.ftc.teamcode.OpMode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.teamcode.control.MotorControlModule;
 @TeleOp(name="Sample_TeleOp", group="TeleOp")
 public class TeleOpMode extends OpMode {
-    private MotorControlModule leftFront, rightFront, leftRear, rightRear;
+    private DcMotorEx leftFront, rightFront, leftRear, rightRear;
 
     private double theta;
 
     @Override
     public void init() {
-        leftFront = new MotorControlModule();
-        rightFront= new MotorControlModule();
-        leftRear= new MotorControlModule();
-        rightRear = new MotorControlModule();
-        ///////////////////////
-        leftFront.LeftFront();
-        rightFront.RightFront();
-        leftRear.LeftRear();
-        rightRear.RightRear();
+//        leftFront = new MotorControlModule();
+//        rightFront= new MotorControlModule();
+//        leftRear= new MotorControlModule();
+//        rightRear = new MotorControlModule();
+//        ///////////////////////
+//        leftFront.LeftFront();
+//        rightFront.RightFront();
+//        leftRear.LeftRear();
+//        rightRear.RightRear();
+        MotorControlModule mcm = new MotorControlModule();
+        leftFront = mcm.leftFront;
+        rightFront = mcm.rightFront;
+        leftRear=mcm.leftRear;
+        rightRear=mcm.rightRear;
 
     }
 
